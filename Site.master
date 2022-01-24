@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    </head>
+<body>
+   <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="left: 0; right: 0; top: 0; height: 283px">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3 style="color:red"> &nbsp PROIECT ASP.NET APLICATIE SALARIZARE - Abiam DRONCA</h3>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            &nbsp&nbsp&nbsp<asp:Image ID="Image1" runat="server" Height="144px" Width="282px" />
+                            &nbsp &nbsp &nbsp &nbsp &nbsp <asp:Image ID="Image2" runat="server" Height="147px" Width="301px" />
+                            &nbsp &nbsp &nbsp &nbsp &nbsp<asp:Image ID="Image3" runat="server" Height="150px" Width="300px" /><br />
+                            &nbsp&nbsp&nbsp&nbsp<asp:Label ID="Label1" runat="server" Text="Label" Font-Size="Medium" Font-Underline="True" ForeColor="White"></asp:Label>
+                            <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick1">
+                            </asp:Timer>
+                            
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/"></a><asp:Menu ID="Menu1" runat="server" BackColor="Silver" Orientation="Horizontal" BorderWidth="5px" Height="36px" RenderingMode="Table" Width="0px" EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ForeColor="#3366FF" IncludeStyleBlock="False" StaticEnableDefaultPopOutImage="False" BorderColor="Black" BorderStyle="None" >
+                        <DynamicHoverStyle BackColor="#7AC0B4" Font-Underline="False" Font-Strikeout="False" />
+                        <DynamicMenuItemStyle Font-Bold="False" Font-Size="Small" ForeColor="Black" Height="25px" HorizontalPadding="0px" VerticalPadding="0px" Width="0px" />
+                        <DynamicMenuStyle BackColor="#FFFF66" Width="120px" />
+                        <Items>
+                            <asp:MenuItem Text="&amp;nbsp;&amp;nbsp;&amp;nbsp Home &amp;nbsp;&amp;nbsp;&amp;nbsp" Value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="&amp;nbsp;&amp;nbsp;&amp;nbsp Introducere date &amp;nbsp;&amp;nbsp;&amp;nbsp" Value="Introducere date" NavigateUrl="~/Home.aspx">
+                                <asp:MenuItem Text="Actualizare date" Value="Actualizare date" NavigateUrl="~/Actualizare.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Adaugare angajati" Value="Adaugare angajati" NavigateUrl="~/Adaugare.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Stergere angajati" Value="Stergere angajati" NavigateUrl="~/Stergere.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Calcul salarii" Value="Calcul salarii"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="&amp;nbsp;&amp;nbsp;&amp;nbsp Tiparire &amp;nbsp;&amp;nbsp;&amp;nbsp" Value="Tiparire" NavigateUrl="~/Home.aspx">
+                                <asp:MenuItem Text="Stat plata" Value="Stat plata" NavigateUrl="~/Raport_statPlata.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Fluturasi" Value="Fluturasi" NavigateUrl="~/Raport_fluturasi.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="&amp;nbsp;&amp;nbsp;&amp;nbsp Procente &amp;nbsp;&amp;nbsp;&amp;nbsp" Value="Procente" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                        </Items>
+                        <StaticMenuItemStyle BorderColor="White" BorderWidth="1px" Height="42px" Font-Overline="False" />
+                    </asp:Menu>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <%--<ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>--%>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
