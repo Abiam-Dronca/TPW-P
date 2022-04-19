@@ -47,7 +47,6 @@ public partial class Default2 : System.Web.UI.Page
                 Server.Transfer("Procente.aspx");
                 dr.Close();
                 conn2.Close();
-
             }
             else
             {
